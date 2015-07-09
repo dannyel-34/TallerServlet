@@ -7,12 +7,16 @@ package Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.conexiondb;
 
 /**
  *
@@ -74,7 +78,35 @@ public class RegistroServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             PrintWriter out = response.getWriter();
-           
+           try {
+               boolean existeID = false;
+               String id = request.getParameter("id");
+               
+               conexiondb mysql = new conexiondb();
+               Connection cn = mysql.Conectar();
+               
+               Statement st = cn.createStatement();
+               ResultSet rs;
+               String consulta = "SELECT * FROM empleados WHERE ID = '" + id + "';";
+               rs = st.executeQuery(consulta);
+               
+               String i = "";
+               
+               while(rs.next()){
+                  existeID = true;
+                  i = rs.getString("id");               
+               }
+               
+               if(existeID){
+                    request.getRequestDispatcher("/MostrarEmpleados.jsp").forward(request, response);
+               }else{
+                    request.getRequestDispatcher("/error.jsp").forward(request, response);
+               }
+               
+               
+           }catch(SQLException e){
+               out.println(e.toString());
+           }
     }
 
     /**

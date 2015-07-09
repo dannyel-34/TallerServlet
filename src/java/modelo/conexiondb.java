@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class conexiondb {
     
-    public String host = "jdbc:mysql://localhost";
+    public String host = "jdbc:mysql://localhost:3306/";
     public String DBname = "empleadosdaniel";
     public String user = "root";
     public String pass="";  

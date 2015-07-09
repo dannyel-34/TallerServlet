@@ -26,6 +26,16 @@
             .btn:hover{
                 background: #999999;
             }
+            a{
+                text-decoration: none;
+                color: #003333;             
+            }
+            
+            h1{
+                font-family: fantasy;
+                font-size: 34px;
+                color: #999900;
+            }
         </style>
     </head>
     <body>
@@ -42,8 +52,9 @@
     
     <input type="submit" onclick="alert('<%= confir %>')" name="Conectar">
     
-    <center><div>Servicio de registro de ingreso de empleados</div></center>
+    <center><h1>Busqueda por empleado</h1></center>
     <center>
+        <div class="login">
         <form method="post" action="RegistroServlet">
             <table border="0">
                 <thead>
@@ -65,6 +76,7 @@
             </table>
 
         </form>
+       </div>
     </center>
     </body>
 </html>
