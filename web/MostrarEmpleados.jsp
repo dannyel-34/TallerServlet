@@ -78,6 +78,19 @@
                 %>
             </tbody>
         </table>
+            
+            <form method="post" accept-charset="RegistroServlet">
+                <label>Registrar entrada: </label>
+                <input type="checkbox" name="chek1">
+                <br>
+                <label>Registrar salida: </label>
+                <input type="checkbox" name="chek2">
+                <br>
+                 <label>Grabar Foto: </label>
+                <input type="checkbox" name="chek3">
+                <br>
+                <input type="submit" name="Enviar" value="Procesar">
+            </form>
 
     </body>
 </html>

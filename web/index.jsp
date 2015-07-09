@@ -50,8 +50,6 @@
                }
     %>
     
-    <input type="submit" onclick="alert('<%= confir %>')" name="Conectar">
-    
     <center><h1>Busqueda por empleado</h1></center>
     <center>
         <div class="login">
@@ -72,11 +70,12 @@
                         <td><input type="text" name="id" class="inputid"></td>
                         <td><input type="submit" name="buscar" value="Busqueda" class="btn"></td>
                     </tr>
+              
                 </tbody>
             </table>
-
         </form>
        </div>
     </center>
+    
     </body>
 </html>
